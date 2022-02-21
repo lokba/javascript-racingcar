@@ -5,17 +5,15 @@ import { RULES } from '../constants/index.js';
 import { validateCarNames, validateRacingCount } from './validation.js';
 
 class RacingCar {
-  constructor() {
-    this.carList = [];
-    this.racingCount = 0;
-  }
+  #carList = [];
+  #racingCount = 0;
 
   #getCarList() {
-    return this.carList;
+    return this.#carList;
   }
 
   getRacingCount() {
-    return this.racingCount;
+    return this.#racingCount;
   }
 
   getCarNameList() {
@@ -34,17 +32,17 @@ class RacingCar {
 
   setCarList(carNamesList) {
     validateCarNames(carNamesList);
-    this.carList = carNamesList.map((carName) => new Car(carName));
+    this.#carList = carNamesList.map((carName) => new Car(carName));
   }
 
   setRacingCount(racingCount) {
     validateRacingCount(racingCount);
-    this.racingCount = racingCount;
+    this.#racingCount = racingCount;
   }
 
   resetStatus() {
-    this.carList = [];
-    this.racingCount = 0;
+    this.#carList = [];
+    this.#racingCount = 0;
   }
 
   tryMoveRacingCarList() {
